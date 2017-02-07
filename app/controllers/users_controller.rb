@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
   before_action :set_user, only: [:show, :update, :destroy]
   before_action :authenticate_token, except: [:login, :create]
-  before_action :authorize_user, except: [:login, :create, :index]
+  # before_action :authorize_user, except: [:login, :create, :index]
 
   def login
     # finds user by username, if auth via pw -- logged in
@@ -10,7 +10,7 @@ class UsersController < ApplicationController
           token = create_token(user.id, user.username)
           render json: {status: 200, token: token, user: user}
         else
-          render json: {status: 401, message: "Unauthorized"}
+          render json: {status: 401, message: "Log in route Unauthorized"}
         end
     end
 

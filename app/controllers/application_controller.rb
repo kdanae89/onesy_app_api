@@ -2,7 +2,7 @@ class ApplicationController < ActionController::API
 
   def authenticate_token
     puts "AUTHENTICATE JWT"
-    render json: { status: 401, message: 'Unauthorized' } unless decode_token(bearer_token)
+    render json: { status: 401, message: 'authenticate_token Unauthorized' } unless decode_token(bearer_token)
   end
 
   def bearer_token
@@ -11,7 +11,7 @@ class ApplicationController < ActionController::API
 
     pattern = /^Bearer /
     puts "TOKEN WITHOUT BEARER"
-    puts header.gsub(pattern, '') if header && header.match(pattern)
+    header.gsub(pattern, '') if header && header.match(pattern)
   end
 
   def get_current_user
@@ -25,14 +25,14 @@ class ApplicationController < ActionController::API
     puts token = JWT.decode(token_input, ENV['JWT_SECRET'], true)
     JWT.decode(token_input, ENV['JWT_SECRET'], true)
   rescue
-    render json: { status: 401, message: "Unauthorized" }
+    render json: { status: 401, message: "decode token Unauthorized" }
   end
 
   def authorize_user
     puts "AUTHORIZE USER"
     puts "user id: #{get_current_user.id}"
     puts "params: #{params[:id]}"
-    render json: {status: 401, message: 'Unauthorized'} unless get_current_user.id == params[:id].to_i
+    render json: {status: 401, message: 'user Unauthorized'} unless get_current_user.id == params[:id].to_i
   end
 
 
