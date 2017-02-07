@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # README
 
 This README would normally document whatever steps are necessary to get the
@@ -22,3 +23,6 @@ Things you may want to cover:
 * Deployment instructions
 
 * ...
+=======
+# onesy_app_api
+>>>>>>> 9e8efbbe6d7f5f80564d3141ec1432ffbf3ccf22
