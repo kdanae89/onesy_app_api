@@ -10,7 +10,7 @@ class UsersController < ApplicationController
           token = create_token(user.id, user.username)
           render json: {status: 200, token: token, user: user}
         else
-          render json: {status: 401, message: "Log in route Unauthorized"}
+          render json: {status: 401, message: "Unauthorized"}
         end
     end
 
@@ -23,11 +23,10 @@ class UsersController < ApplicationController
 
   # GET /users/1
   def show
-    @user = User.find(params[:id])
-    user_onesies = @user.onesies
-    render json: { user: @user }
+    user = current_user
+    user_onesies = user.onesies
 
-    render json: { user: @user, onesies: user_onesies }
+    render json: { user: user, onesies: user_onesies }
   end
 
   # POST /users
