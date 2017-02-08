@@ -1,3 +1,3 @@
 class Image < ApplicationRecord
-  belongs_to :onesy
+  has_and_belongs_to_many :onesies
 end

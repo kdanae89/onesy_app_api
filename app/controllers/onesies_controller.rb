@@ -19,7 +19,7 @@ class OnesiesController < ApplicationController
     onesy = Onesy.new(onesy_params)
 
     if onesy.save
-      render json: { status: 200, onsey: onesy }
+      render json: { status: 200, onesy: onesy }
     else
       render json: { status: 400, onesy: onesy }
   end
