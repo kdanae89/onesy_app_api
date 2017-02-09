@@ -1,8 +1,9 @@
 Rails.application.routes.draw do
+  resources :images, only:[:index, :show]
+  resources :ledgers
   root 'welcome#index'
   resources :users do
     resources :onesies do
-      resources :images
     end
     collection do
       post '/login', to: 'users#login'

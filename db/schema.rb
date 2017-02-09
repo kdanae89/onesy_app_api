@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170207174544) do
+ActiveRecord::Schema.define(version: 20170209163745) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -19,7 +19,16 @@ ActiveRecord::Schema.define(version: 20170207174544) do
     t.string   "img"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "ledgers", force: :cascade do |t|
+    t.integer  "image_id"
     t.integer  "onesy_id"
+    t.integer  "qty"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["image_id"], name: "index_ledgers_on_image_id", using: :btree
+    t.index ["onesy_id"], name: "index_ledgers_on_onesy_id", using: :btree
   end
 
   create_table "onesies", force: :cascade do |t|
@@ -37,4 +46,6 @@ ActiveRecord::Schema.define(version: 20170207174544) do
     t.datetime "updated_at",      null: false
   end
 
+  add_foreign_key "ledgers", "images"
+  add_foreign_key "ledgers", "onesies"
 end

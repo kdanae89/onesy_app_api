@@ -1,4 +1,4 @@
 class Onesy < ApplicationRecord
-  belongs_to :user, optional: true
-  has_many :images
+  has_many :ledgers
+  has_many :images, through: :ledgers
 end
