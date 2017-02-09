@@ -1,3 +1,4 @@
 class Image < ApplicationRecord
-  has_and_belongs_to_many :onesies
+  has_many :ledgers
+  has_many :onesies, through: :ledgers
 end
