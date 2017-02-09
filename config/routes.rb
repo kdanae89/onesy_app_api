@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :images, only:[:index, :show]
   resources :ledgers
   root 'welcome#index'
   resources :users do
