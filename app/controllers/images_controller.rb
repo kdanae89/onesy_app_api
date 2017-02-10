@@ -1,38 +1,38 @@
 class ImagesController < ApplicationController
 
-  # GET /users/user_id/onesies/onsey_id/images
+  # GET /images
     def index
       images = Image.all
 
-      render json: { status: 200, images: images}
+      render json: { status: 200, images: images }
     end
 
-    def create
-      onesy = Onesy.find_by(id: image_params[:onesy_id])
-      image = Image.new(image_params)
-      image.onesy_id = onesy.id if onesy
+    # def create
+    #   onesy = Onesy.find_by(id: image_params[:onesy_id])
+    #   image = Image.new(image_params)
+    #   image.onesy_id = onesy.id if onesy
+    #
+    #   if image.save
+    #     render json: { status: 200, image: image }
+    #   else
+    #     render json: { status: 422, image: image.errors }
+    #   end
+    # end
 
-      if image.save
-        render json: { status: 200, image: image }
-      else
-        render json: { status: 422, image: image.errors }
-      end
-    end
-
-  # GET /users/user_id/onesies/onesy_id/images/id
+  # GET /images/id
     def show
       image = Image.find(params[:id])
 
       render json: { Image: image, status: 200 }
     end
 
-    def update
-      image = Image.find(params[:id])
-
-      image.update(image_params)
-
-      render json: { status: 200, image: image }
-    end
+    # def update
+    #   image = Image.find(params[:id])
+    #
+    #   image.update(image_params)
+    #
+    #   render json: { status: 200, image: image }
+    # end
 
     def destroy
       image = Image.destroy(params[:id])
