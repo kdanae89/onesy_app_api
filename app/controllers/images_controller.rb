@@ -20,11 +20,11 @@ class ImagesController < ApplicationController
     # end
 
   # GET /images/id
-    def show
-      image = Image.find(params[:id])
-
-      render json: { Image: image, status: 200 }
-    end
+    # def show
+    #   image = Image.find(params[:id])
+    #
+    #   render json: { Image: image, status: 200 }
+    # end
 
     # def update
     #   image = Image.find(params[:id])
@@ -34,11 +34,11 @@ class ImagesController < ApplicationController
     #   render json: { status: 200, image: image }
     # end
 
-    def destroy
-      image = Image.destroy(params[:id])
-
-      render json: { status: 204 }
-    end
+    # def destroy
+    #   image = Image.destroy(params[:id])
+    #
+    #   render json: { status: 204 }
+    # end
 
     private
 

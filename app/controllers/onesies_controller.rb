@@ -1,4 +1,5 @@
 class OnesiesController < ApplicationController
+  before_action :authenticate_token
 
   # GET /users/user_id/onesies
   def index
