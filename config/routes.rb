@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
+  root 'welcome#index'
   resources :images, only:[:index]
   resources :ledgers
-  root 'welcome#index'
   resources :users do
     resources :onesies do
     end
