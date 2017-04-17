@@ -2,9 +2,9 @@ class ImagesController < ApplicationController
 
   # GET /images
     def index
-      @images = Image.all
+      images = Image.all
 
-      render json: { status: 200, images: @images }
+      render json: { status: 200, images: images }
     end
 
     # def create
